@@ -1,0 +1,47 @@
+{% extends 'partials/base.html' %}
+{% block title %}All detections{% endblock %}
+
+{% block content  %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-8 offset-md-2">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">url</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in malicious_phish %}
+                  <tr>
+                    
+                    <td>{{ data.url }}</td>
+
+                  
+                  
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+          
+              {% for data in malicious_phish|slice:"0:1" %}
+                You may cultivate 
+                {% if data.predictions_type == 0 %}
+                  benign
+                {% elif data.predictions_type == 1 %}
+                  defacement
+                {% elif data.predictions_type == 2 %}
+                  phishing                 
+                {% else %}
+                  malware 
+                {% endif %}
+
+               type {{ data.predictions }} according to Nitrogen = {{ data.Nitrogen }}  Phosphorus = {{ data.Phosphorus }} Potasium = {{ data.Potasium }} Temperature = {{ data.Temperature }} Humidity = {{ data.Humidity }} pH = {{ data.pH }} Rainfall = {{ data.Rainfall }} Type = {{ data.Type }} 
+
+               according to the data.
+              
+              {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
