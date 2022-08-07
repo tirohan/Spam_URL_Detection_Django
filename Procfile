@@ -1,1 +1,1 @@
-web: gunicorn crop_recommendation.wsgi --log-file -
+web: gunicorn spam_detection.wsgi --log-file -

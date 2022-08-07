@@ -27,9 +27,9 @@ def index(request):
 
 
 def predictions(request):
-    recommended_crop = Data.objects.all()
+    spam_detection = Data.objects.all()
     context = {
-        'recommended_crop': recommended_crop
+        'spam_detection': spam_detection
     }
     return render(request, 'dashboard/predictions.html', context)
 
